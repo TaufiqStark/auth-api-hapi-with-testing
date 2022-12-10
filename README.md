@@ -22,17 +22,19 @@ Selain empat folder besar tersebut, kita juga menambahkan satu folder tambahan y
 
 Supaya lebih memahami cara kerja fungsi dan struktur proyek, silakan simak dengan seksama bagan dari alur control aplikasi berikut.
 
-![20210809002537bddffee0e6ff9c6b4211de67c059d99b.png](https://d17ivq9b7rppb3.cloudfront.net/original/academy/20210809002537bddffee0e6ff9c6b4211de67c059d99b.png)
-Alur Kontrol 
+<figure>
+  <img src="https://d17ivq9b7rppb3.cloudfront.net/original/academy/20210809002537bddffee0e6ff9c6b4211de67c059d99b.png" alt="Alur Kontrol">
+  <figcaption>Alur Kontrol</figcaption>
+</figure>
 
 Seperti yang tampak pada bagan di atas, kita membagi struktur aplikasi menjadi empat folder yakni Infrastructures (biru), Interfaces (hijau), Applications (merah), dan Domains (kuning). Berikut penjelasan dari alur tersebut:
 
-    Client melakukan request POST /users untuk membuat user baru.
-    Request masuk ke HTTP server yang dijalankan oleh Application Entry Point.
-    Request tersebut akan diarahkan oleh routes dan ditangani oleh handler yang sesuai.
-    Handler menangani request dari client dengan memanggil addUser use case dan memberikan request payload dari client sebagai use case payload. Handler memiliki objek repository dan security concern concrete yang dibawa dari entry point -> server -> routes -> handler. Di mana objek concrete tersebut juga diberikan kepada use case oleh handler agar ia dapat menjalankan tugasnya.
-    addUser Use case menerima tugas dari handler dan mengolah use case payload menjadi domain model NewUser. Setelah memiliki domain model, use case akan meminta UserRepository untuk menyimpan NewUser pada database.
-    UserRepository akan menyimpan NewUser dan mengembalikan nilai yang dibutuhkan Use Case untuk dijadikan response oleh handler terhadap permintaan client.
+1. Client melakukan request POST /users untuk membuat user baru.
+2. Request masuk ke HTTP server yang dijalankan oleh Application Entry Point.
+3. Request tersebut akan diarahkan oleh routes dan ditangani oleh handler yang sesuai.
+4. Handler menangani request dari client dengan memanggil addUser use case dan memberikan request payload dari client sebagai use case payload. Handler memiliki objek repository dan security concern concrete yang dibawa dari entry point -> server -> routes -> handler. Di mana objek concrete tersebut juga diberikan kepada use case oleh handler agar ia dapat menjalankan tugasnya.
+5. addUser Use case menerima tugas dari handler dan mengolah use case payload menjadi domain model NewUser. Setelah memiliki domain model, use case akan meminta UserRepository untuk menyimpan NewUser pada database.
+6. UserRepository akan menyimpan NewUser dan mengembalikan nilai yang dibutuhkan Use Case untuk dijadikan response oleh handler terhadap permintaan client.
 
 Kira-kira seperti itulah alur proses aplikasi yang akan kita bangun. Mungkin sebagian dari Anda masih ada yang belum memahami sepenuhnya alur dari aplikasi yang hendak dibuat. Tidak apa-apa, seiring praktik pemahaman Anda akan semakin matang. 
 
@@ -40,7 +42,7 @@ Kira-kira seperti itulah alur proses aplikasi yang akan kita bangun. Mungkin seb
 ## Anatomi Proyek
 
 Sebelum melangkah ke materi selanjutnya, ada baiknya Anda mengenal anatomi proyek yang akan kita bangun secara lebih detail terlebih dahulu. Simaklah anatominya di bawah ini.
-
+javascript ```
     auth-api/                   → Root Proyek.
     ├─ config/                  → Folder konfigurasi, digunakan untuk mengonfigurasi node-pg-migrate pada database testing.
     ├─ migrations/              → Berkas migrations database.
@@ -64,3 +66,4 @@ Sebelum melangkah ke materi selanjutnya, ada baiknya Anda mengenal anatomi proye
     ├─ tests/                   → Utilitas kebutuhan untuk testing.
     ├─ .env                     → Environment variable.
     ├─ package.json             → Project Manifest.
+```
