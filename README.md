@@ -10,11 +10,12 @@ Sebelum memulai latihan, pahami dulu struktur proyek yang akan dibangun. Jadi, p
 
     Infrastructures: Merupakan letak agen eksternal seperti framework, HTTP Server, Database, JWT Token, Bcrypt dan sebagainya. Di folder ini juga kita mendefinisikan concrete repository dari Domain, atau concrete service, helper, tools dari Application.
 
-    Penamaan folder disesuaikan berdasarkan empat layer aplikasi pada konsep Domain-Driven Design. Konsep tersebut dikemukakan oleh Eric Evans melalui bukunya yang berjudul [Domain-Driven Design: Tackling Complexity in the Heart of Software](https://www.pearson.com/us/higher-education/program/Evans-Domain-Driven-Design-Tackling-Complexity-in-the-Heart-of-Software/PGM168436.html).
+    
+> Penamaan folder disesuaikan berdasarkan empat layer aplikasi pada konsep Domain-Driven Design. Konsep tersebut dikemukakan oleh Eric Evans melalui bukunya yang berjudul [Domain-Driven Design: Tackling Complexity in the Heart of Software](https://www.pearson.com/us/higher-education/program/Evans-Domain-Driven-Design-Tackling-Complexity-in-the-Heart-of-Software/PGM168436.html).
 
 Selain empat folder besar tersebut, kita juga menambahkan satu folder tambahan yakni Commons. Folder ini merupakan shared folder yang berisi class, function, atau apa pun yang boleh digunakan oleh ke-empat folder tersebut. Contohnya, kita akan mendefinisikan custom exception agar dapat menangani error secara spesifik.
 
-    Agar kode bisnis tetap bersih, kode yang berada di folder Domains dan Applications akan menghindari penggunaan shared folder.
+> Agar kode bisnis tetap bersih, kode yang berada di folder Domains dan Applications akan menghindari penggunaan shared folder.
 
 
 ## Alur Kontrol
@@ -36,7 +37,7 @@ Seperti yang tampak pada bagan di atas, kita membagi struktur aplikasi menjadi e
 Kira-kira seperti itulah alur proses aplikasi yang akan kita bangun. Mungkin sebagian dari Anda masih ada yang belum memahami sepenuhnya alur dari aplikasi yang hendak dibuat. Tidak apa-apa, seiring praktik pemahaman Anda akan semakin matang. 
 
 
-Anatomi Proyek
+## Anatomi Proyek
 
 Sebelum melangkah ke materi selanjutnya, ada baiknya Anda mengenal anatomi proyek yang akan kita bangun secara lebih detail terlebih dahulu. Simaklah anatominya di bawah ini.
 
