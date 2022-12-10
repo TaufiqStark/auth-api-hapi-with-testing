@@ -22,10 +22,8 @@ Selain empat folder besar tersebut, kita juga menambahkan satu folder tambahan y
 
 Supaya lebih memahami cara kerja fungsi dan struktur proyek, silakan simak dengan seksama bagan dari alur control aplikasi berikut.
 
-<figure>
-  <img src="./flow-control.png" alt="Alur Kontrol">
-  <figcaption>Alur Kontrol</figcaption>
-</figure>
+![Alur Kontrol](./flow-control.png)
+*Alur Kontrol*
 
 Seperti yang tampak pada bagan di atas, kita membagi struktur aplikasi menjadi empat folder yakni Infrastructures (biru), Interfaces (hijau), Applications (merah), dan Domains (kuning). Berikut penjelasan dari alur tersebut:
 
