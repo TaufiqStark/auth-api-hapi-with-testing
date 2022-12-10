@@ -1,14 +1,14 @@
 ## Mengenal Struktur Proyek
 
-Sebelum memulai latihan, pahami dulu struktur proyek yang akan dibangun. Jadi, proyek Auth API akan memiliki empat struktur folder besar, yaitu Domains, Applications, Interfaces, dan Infrastructures.
+Sebelum memulai latihan, pahami dulu struktur proyek yang akan dibangun. Jadi, proyek Auth API akan memiliki empat struktur folder besar, yaitu **Domains, Applications, Interfaces**, dan **Infrastructures**.
 
-    Domains: Merupakan Enterprise Business Layer, di dalam folder ini terdapat model domain (entities) dan abstract/interface repository. Di folder ini diharapkan untuk tidak ada dependencies (sintaks require atau import) terhadap agen external seperti framework atau tools luar.
+- **Domains**: Merupakan Enterprise Business Layer, di dalam folder ini terdapat model domain (entities) dan abstract/interface repository. Di folder ini diharapkan untuk tidak ada dependencies (sintaks require atau import) terhadap agen external seperti framework atau tools luar.
 
-    Applications: Merupakan Application Business Layer, di dalam folder ini terdapat alur bisnis yang kita definisikan dalam bentuk use case. Selain itu, kita juga bisa meletakkan abstraksi atau interface dari services, helper, tools, dan lainnya yang digunakan oleh use case. Di folder ini juga diharapkan untuk tidak ada dependencies langsung terhadap framework atau tools luar. Use Case diperbolehkan memiliki dependencies atau menggunakan domain karena domain berada di dalam lingkarannya.
+- **Applications**: Merupakan Application Business Layer, di dalam folder ini terdapat alur bisnis yang kita definisikan dalam bentuk use case. Selain itu, kita juga bisa meletakkan abstraksi atau interface dari services, helper, tools, dan lainnya yang digunakan oleh use case. Di folder ini juga diharapkan untuk tidak ada dependencies langsung terhadap framework atau tools luar. Use Case diperbolehkan memiliki dependencies atau menggunakan domain karena domain berada di dalam lingkarannya.
 
-    Interfaces: Merupakan adapter atau jembatan penghubung antara use case dengan agen eksternal, seperti HTTP server. Di sini kita akan mendefinisikan routes configuration dan juga handler yang dibungkus dengan Hapi Plugin.
+- **Interfaces**: Merupakan adapter atau jembatan penghubung antara use case dengan agen eksternal, seperti HTTP server. Di sini kita akan mendefinisikan routes configuration dan juga handler yang dibungkus dengan Hapi Plugin.
 
-    Infrastructures: Merupakan letak agen eksternal seperti framework, HTTP Server, Database, JWT Token, Bcrypt dan sebagainya. Di folder ini juga kita mendefinisikan concrete repository dari Domain, atau concrete service, helper, tools dari Application.
+- **Infrastructures**: Merupakan letak agen eksternal seperti framework, HTTP Server, Database, JWT Token, Bcrypt dan sebagainya. Di folder ini juga kita mendefinisikan concrete repository dari Domain, atau concrete service, helper, tools dari Application.
 
     
 > Penamaan folder disesuaikan berdasarkan empat layer aplikasi pada konsep Domain-Driven Design. Konsep tersebut dikemukakan oleh Eric Evans melalui bukunya yang berjudul [Domain-Driven Design: Tackling Complexity in the Heart of Software](https://www.pearson.com/us/higher-education/program/Evans-Domain-Driven-Design-Tackling-Complexity-in-the-Heart-of-Software/PGM168436.html).
@@ -23,7 +23,7 @@ Selain empat folder besar tersebut, kita juga menambahkan satu folder tambahan y
 Supaya lebih memahami cara kerja fungsi dan struktur proyek, silakan simak dengan seksama bagan dari alur control aplikasi berikut.
 
 <figure>
-  <img src="https://d17ivq9b7rppb3.cloudfront.net/original/academy/20210809002537bddffee0e6ff9c6b4211de67c059d99b.png" alt="Alur Kontrol">
+  <img src="./flow-control.png" alt="Alur Kontrol">
   <figcaption>Alur Kontrol</figcaption>
 </figure>
 
@@ -42,7 +42,7 @@ Kira-kira seperti itulah alur proses aplikasi yang akan kita bangun. Mungkin seb
 ## Anatomi Proyek
 
 Sebelum melangkah ke materi selanjutnya, ada baiknya Anda mengenal anatomi proyek yang akan kita bangun secara lebih detail terlebih dahulu. Simaklah anatominya di bawah ini.
-javascript ```
+
     auth-api/                   → Root Proyek.
     ├─ config/                  → Folder konfigurasi, digunakan untuk mengonfigurasi node-pg-migrate pada database testing.
     ├─ migrations/              → Berkas migrations database.
@@ -66,4 +66,3 @@ javascript ```
     ├─ tests/                   → Utilitas kebutuhan untuk testing.
     ├─ .env                     → Environment variable.
     ├─ package.json             → Project Manifest.
-```
