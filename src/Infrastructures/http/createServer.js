@@ -1,6 +1,7 @@
 const Hapi = require('@hapi/hapi');
 const ClientError = require('../../Commons/exceptions/ClientError');
 const DomainErrorTranslator = require('../../Commons/exceptions/DomainErrorTranslator');
+const authentications = require('./api/authentications');
 const users = require('./api/users');
 
 const createServer = async (container) => {
@@ -12,6 +13,10 @@ const createServer = async (container) => {
   await server.register([
     {
       plugin: users,
+      options: { container },
+    },
+    {
+      plugin: authentications,
       options: { container },
     },
   ]);
